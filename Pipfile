@@ -6,7 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask = "*"
+flask = "~=1.1.2"
+enum34 = "*"
+datetime = "*"
 
 [requires]
 python_version = "3.8"
