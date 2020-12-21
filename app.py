@@ -1,14 +1,24 @@
 from flask import Flask
-
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
-@app.route('/')
-def index():
-    return "Hello world"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://{user}:{password}@{server}/{database}'.format(
+    user='root', password='root', server='localhost', database='pp_orm')
 
-@app.route('/api/v1/hello-world-4')
+
+app.config['SECRET_KEY'] = 'thisissecrret'
+
+db = SQLAlchemy(app)
+
+engine = db.engine
+Base = db.Model
+
+@app.route('/')
 def hello_world():
-    return 'Hello World 4'
+    return 'Hello World!'
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    app.run()
+
+
