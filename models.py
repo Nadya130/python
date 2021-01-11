@@ -5,10 +5,10 @@ class User(Base):
     __tablename__ = 'users'
     id = db.Column(db.INTEGER, autoincrement=True, primary_key=True)
     username = db.Column(db.VARCHAR(255), nullable=False)
-    firstName = db.Column(db.VARCHAR(255), nullable=False)
-    lastName = db.Column(db.VARCHAR(255), nullable=False)
+    firstName = db.Column(db.VARCHAR(255))
+    lastName = db.Column(db.VARCHAR(255))
     password = db.Column(db.VARCHAR(255), nullable=False)
-    phoneNumber = db.Column(db.VARCHAR(20), nullable=False)
+    phoneNumber = db.Column(db.VARCHAR(20))
 
 class Bank(Base):
     __tablename__ = 'banks'
